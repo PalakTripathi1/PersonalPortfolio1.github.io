@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/e7a13c9f2d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="head">
+        <div class="class">
+            <nav>
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#aboutme">About me</a></li>
+                    <li><a href="#Services">Services</a></li>
+                    <li><a href="#Contact">Contact</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                </ul><i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header">
+                <p>BTech Student,<br> IIT Roorkee</p>
+                <h1>Hi, I'm <span>Palak</span> Tripathi</h1>
+            </div>
+        </div>
+    </div>
+    <div id="aboutme">
+        <div class="heads">
+            <div class="row">
+                <div class="aboutcol1">
+                <img src="img.jpg" >
+            </div>
+                <div class="aboutcol2">
+                    <h1 class="subtitle">About Me</h1>
+                    <p padding="25px 15px">Heya!! Peeps.This is Palak Tripathi.I welcome you all here. I am a first year Btech Electrical student at IIT Roorkee.I am keen intrested towards coding, programming,webd, appd,bit of finance.Though i have to learn a lot. Apart from academics i am also into public speaking or anchoring,badminton.
+                        Looking forward to explore more and more:)<br>
+                        EXPLORE,LEARN & GROW!!:)
+                    </p>
+                    <div class="titles">
+                        <p class="links active"onclick="opentab('skills')">Skills</p>
+                        <p class="links"onclick="opentab('experience')">Experience</p>
+                        <p class="links"onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="contents active" id="skills">
+                        <ul>
+                            <li><span>C++ </span><br>PL</li>
+                            <li><span>HTML</span><br>WebD basics</li>
+                            <li><span>Public</span><br>Speaking</li>
+                        </ul>
+                    </div>
+                    <div class="contents"id="experience">
+                        <ul>
+                            <li><span>WebD</span><br>Payment Form</li>
+                            <li><span>WebD</span><br> basics</li>
+                        </ul>
+                    </div>
+                    <div class="contents" id="education">
+                        <ul>
+                            <li><span>IITR</span><br>Btech</li>
+                            <li><span>2022</span><br>Class 12th</li>
+                            <li><span>2020</span><br>Class 10th</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="Services">
+        <div class="heads1">
+            <h1 class="subtitle">My Services</h1>
+            <div class="Serviceslist">
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>C++ PL</h2>
+                    <p>Learned C++ at IIT Roorkee.And also verified tested in 1st Semester Exams.</p>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-brands fa-app-store-ios"></i>
+                    <h2>HTML or WebD</h2>
+                    <p>Learned HTML at for WebD basics.Keen to learn more.</p>
+                    <a href="#">Learn more</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="Contact">
+        <div class="heads1">
+            <div class="row">
+                <div class="Contactleft">
+                    <h1 class="Subtitle">Contact Me</h1>
+                    <p><i class="fa-solid fa-paper-plane"></i>tripathipalak402@gmail.com</p>
+                    <p><i class="fa-solid fa-square-phone"></i>9876543211</p>
+                    <div class="Socialicons">
+                        <a href="https://www.instagram.com/"><i class="fa-brands fa-square-instagram"></i></a>
+                        <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.twitter.com/"><i class="fa-brands fa-square-twitter"></i></a>
+                    </div>
+                </div>
+        
+                <div class="Contactright">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required >
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="7" placeholder="Your Message"></textarea>
+                        <button type="Submit" class="btn btn1" >Submit</button>
+
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <script>
+        var tablinks = document.getElementsByClassName("links");
+        var tabcontents = document.getElementsByClassName("contents");
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active");
+            }
+            event.currentTarget.classList.add("active");
+            document.getElementById(tabname).classList.add("active");
+
+        }
+
+    </script>
+    <script>
+        var sidemenu=document.getElementById("sidemenu");
+        function openmenu(){
+            sidemenu.style.right="0";
+        }
+        function closemenu(){
+            sidemenu.style.right="-200px";
+        }
+    </script>
+    <script>
+        const scriptURL = '<https://script.google.com/macros/s/AKfycbww5pZjoJGBhPLyMMSwZzivZWCSL0pZb8ok6EEPC5AXxfI_rxWny2juy_r5M4cuBbraMQ/exec>'
+        const form = document.forms['submit-to-google-sheet']
+        const msg= document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML="Message Sent Successfully"
+                setTimeout(function(){
+                    msg.innerHTML=""
+                },5000)
+                form.reset();
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+</html>
